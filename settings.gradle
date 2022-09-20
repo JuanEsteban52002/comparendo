@@ -1,0 +1,4 @@
+rootProject.name = 'comparendo'
+include 'negocio'
+include 'web'
+
