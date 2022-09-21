@@ -1,0 +1,25 @@
+.icon-p{
+    width: 100px;
+}
+
+.color-principal{
+    background-color: #e5e5e5;
+}
+
+.icon-menu{
+    width: 50px;
+    margin-right: 10px;
+}
+
+#div_izquierda{
+    float: left;
+    width: 50%;
+}
+
+#div_derecha{
+    float: right;
+    width: 50%;
+}
+
+
+

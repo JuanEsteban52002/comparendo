@@ -6,35 +6,146 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
-<h:head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Comparendos</title>
-</h:head>
-<h:body>
 
-    <div>
-        <div>
-            <h5>2. Lugar de la infracción</h5>
-            <span class="ui-float-label">
-       <p:inputText id="float-input" value="#{valor}"/>
-       <p:outputLabel for="@previous" value="Dirección"/>
-       </span>
 
-            <h5>Fecha y hora</h5>
-            <div class="field col-12 md:col-4">
-                <p:outputLabel for="basic" value="Fecha:  "/>
-                <p:datePicker id="basic" value="#{calendarView.date}" />
+<ui:composition template="/WEB-INF/template.xhtml">
+    <ui:define name="title">Inicio</ui:define>
+    <ui:define name="content">
+        <h:form>
+                <div id="div_izquierda">
+                    <div id="1">
+                        <h5>1. Fecha y hora</h5><br></br>
+
+                        <h:panelGrid columns="2" cellpadding="5">
+                            <p:outputLabel value="Fecha:" for="fecha_c"/>
+
+                            <p:outputLabel value="Hora:" for="hora_c"/>
+
+                            <p:calendar id="fecha_c" value="#{comparendoBean.comparendo.fecha}" required="true" showOn="button"/>
+
+                            <p:calendar id="hora_c" value="#{comparendoBean.comparendo.hora}" required="true" pattern="HH:mm" timeOnly="true"/>
+                        </h:panelGrid>
+
+                    </div>
+                    <div id="2">
+                        <br></br>
+                        <h5>2. Lugar de la infracción</h5><br></br>
+
+                        <p:outputLabel value="Dirección:" for="direccion_c"/><br></br>
+                        <p:inputText style="width: 500px" id="direccion_c" value="#{comparendoBean.comparendo.direccion}" required="true"/>
+
+                        <h:panelGrid columns="2" cellpadding="5">
+                            <p:outputLabel value="Municipio:" for="municipio_c"/>
+                            <p:outputLabel value="Localidad:" for="localidad_c"/>
+
+                            <p:inputText id="municipio_c" value="#{comparendoBean.comparendo.municipio}" required="true"/>
+                            <p:inputText id="localidad_c" value="#{comparendoBean.comparendo.localidad}" required="true"/>
+                        </h:panelGrid>
+
+                    </div>
+
+                    <div id="3-4">
+                        <br></br>
+                        <h5>3-4 Placa</h5><br></br>
+
+                        <h:panelGrid columns="2" cellpadding="5">
+                            <p:outputLabel value="Placa:" for="placa_c"/>
+                            <p:outputLabel value="Matriculado en:" for="matriculado_c"/>
+
+                            <p:inputText id="placa_c" value="#{comparendoBean.comparendo}" required="true"/>
+                            <p:inputText id="matriculado_c" value="#{comparendoBean.comparendo}" required="true"/>
+                        </h:panelGrid>
+
+
+
+                    </div>
+
+                    <div id="6-7-8-9">
+
+                        <h:panelGrid columns="2" cellpadding="5">
+                            <p:outputLabel style="font-weight: bolder" value="6. Tipo de servicio" for="tiposervicio_c"/>
+                            <p:outputLabel style="font-weight: bolder" value="7. Clase de vehiculo" for="numdocumentop_c"/>
+
+                            <p:inputText id="tiposervicio_c" value="#{comparendoBean.comparendo.localidad}" required="true"/>
+                            <p:inputText id="clasevehiculo_c" value="#{comparendoBean.comparendo.localidad}" required="true"/>
+
+                            <p:outputLabel style="font-weight: bolder" value="8. Radio de accion" for="radioaccion_c"/>
+                            <p:outputLabel style="font-weight: bolder" value="9. Modalidad de transporte" for="modalidadtransporte_c"/>
+
+                            <p:inputText id="radioaccion_c" value="#{comparendoBean.comparendo.localidad}" required="true"/>
+                            <p:inputText id="modalidadtransporte_c" value="#{comparendoBean.comparendo.localidad}" required="true"/>
+                        </h:panelGrid>
+
+
+
+
+                    </div>
+
+                    <div id="9.1">
+                        <h5>9.1 Nivel de servicio</h5><br></br>
+
+                        <p:inputText style="width: 500px" id="nivelservicio_c" value="#{comparendoBean.comparendo.localidad}" required="true"/>
+                    </div>
+
+                    <div id="10">
+                        <h5>10. Tipo de infractor</h5>
+
+
+                    </div>
+                </div>
+
+
+
+                <div class="div_derecha">
+                    <div id="11">
+                        <h5>11. Licencia de tránsito</h5><br></br>
+
+                        <p:outputLabel value="Organización de tránsito" for="orgtransito_c"/><br></br>
+                        <p:inputText style="width: 500px" id="orgtransito_c" value="#{comparendoBean.comparendo.localidad}" required="true"/>
+
+                        <br></br><br></br>
+                        <p:outputLabel value="Numero del documento" for="numdocumento_c"/><br></br>
+                        <p:inputText style="width: 500px" id="numdocumento_c" value="#{comparendoBean.comparendo.localidad}" required="true"/>
+                    </div>
+
+                    <div id="12">
+
+                        <br></br><br></br>
+                        <h5>12. Datos del propietario</h5><br></br>
+
+                        <h:panelGrid columns="2" cellpadding="5">
+                            <p:outputLabel value="Tipo de documento" for="tipodocumento_c"/>
+                            <p:outputLabel value="Numero documento" for="numdocumentop_c"/>
+
+                            <p:inputText id="tipodocumento_c" value="#{comparendoBean.comparendo.localidad}" required="true"/>
+                            <p:inputText id="numdocumentop_c" value="#{comparendoBean.comparendo.localidad}" required="true"/>
+                        </h:panelGrid>
+
+                        <p:outputLabel value="Nombres y apellidos completos" for="nombrep_c"/><br></br>
+                        <p:inputText style="width: 500px" id="nombrep_c" value="#{comparendoBean.comparendo.localidad}" required="true"/>
+
+
+                        <div id="boton_guardar">
+                            <br></br>
+                            <p:commandButton style="right: 0" value="Guardar" action="#{comparendoBean.guardar}"
+                                             styleClass="ui-button-success"
+                                             icon="pi pi-arrow-right" iconPos="right"/>
+                        </div>
+                    </div>
+                </div>
+
+        </h:form>
+
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+            <div class="col-md-4 d-flex align-items-center">
+                <span id="texto_piepagina" class="mb-3 mb-md-0 text-muted">&copy; 2022 Comparendo - Proyecto Ingeniería de software III</span>
             </div>
-        </div>
-        <div>
-            <br></br>
-            <p:commandButton value="Guardar" action="#{valor.guardar}"
-                             styleClass="ui-button-success"
-                             icon="pi pi-arrow-right" iconPos="right"/>
-        </div>
 
-    </div>
+            <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+            </ul>
+        </footer>
+    </ui:define>
+</ui:composition>
 
-</h:body>
+
 </html>
