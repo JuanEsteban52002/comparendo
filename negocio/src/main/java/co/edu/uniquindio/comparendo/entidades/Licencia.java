@@ -5,7 +5,9 @@ import lombok.*;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import java.io.Serializable;
+import java.util.List;
 
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @NoArgsConstructor
@@ -19,7 +21,10 @@ public class Licencia implements Serializable {
     @Id
     @EqualsAndHashCode.Include
     @Column(length = 15)
-    private Integer numero;
+    private String numero;
 
     private String organizacionTransito;
+
+    @OneToMany(mappedBy = "licencia")
+    private List<Comparendo> comparendos;
 }

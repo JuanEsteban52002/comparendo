@@ -8,6 +8,4 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ComparendoRepo extends JpaRepository<Comparendo, Integer> {
 
-    @Query("select c from Comparendo c where c.id = :id")
-    Comparendo obtenerComparendo(Integer id);
 }

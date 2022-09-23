@@ -2,9 +2,7 @@ package co.edu.uniquindio.comparendo.entidades;
 
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -20,6 +18,7 @@ public class Comparendo implements Serializable {
     @Id
     @EqualsAndHashCode.Include
     @Column(length = 15)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     private Date Fecha;
@@ -39,4 +38,13 @@ public class Comparendo implements Serializable {
     private Boolean comparendoPolca;
 
     private Boolean accidente;
+
+    @ManyToOne
+    private Infractor infractor;
+
+    @ManyToOne
+    private Licencia licencia;
+
+    @ManyToOne
+    private Vehiculo vehiculo;
 }

@@ -9,20 +9,21 @@
 <h:head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <h:outputStylesheet library="css" name="bootstrap.min.css" />
-    <h:outputStylesheet library="css" name="style.css" />
-    <h:outputScript library="js" name="bootstrap.bundle.min.js" />
+    <h:outputStylesheet library="css" name="bootstrap.min.css"/>
+    <h:outputStylesheet library="css" name="style.css"/>
+    <h:outputScript library="js" name="bootstrap.bundle.min.js"/>
     <title>Comparendo | <ui:insert name="title">Plantilla</ui:insert></title>
 </h:head>
 <h:body>
 
-    <div id="encabezado" >
-        <div >
+    <div id="encabezado">
+        <div>
             <div class="px-3 py-2 color-principal text-white">
                 <div class="container">
                     <div>
-                        <a href="/" class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
-                            <h:graphicImage library="img" name="logo.png" styleClass="icon-p" />
+                        <a href="/"
+                           class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
+                            <h:graphicImage library="img" name="logo.png" styleClass="icon-p"/>
                         </a>
 
                         <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
@@ -33,17 +34,33 @@
             <div class="px-3 py-2 border-bottom mb-3">
                 <div class="container d-flex flex-wrap justify-content-center">
                 </div>
-                </div>
             </div>
         </div>
+    </div>
 
 
     <div id="contenido" class="fondo-c">
-        <div class="container" >
+        <div class="container">
             <ui:insert name="content">Contenido</ui:insert>
         </div>
     </div>
 
-</h:body>
+    <div id="pie_pagina">
+        <div class="container">
+            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+                <div class="col-md-4 d-flex align-items-center">
+                    <span class="mb-3 mb-md-0 text-muted">&copy; 2022 Comparendo | Prototipo Ingeniería de software III</span>
+                </div>
 
+                <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+                    <li class="ms-3"><a class="text-muted" href="https://pbs.twimg.com/media/FPMhRJOXMAA-fET.jpg" target="_blank"><i
+                            class="pi pi-info-circle icon-menu"></i></a></li>
+                    <li class="ms-3"><a class="text-muted" href="https://github.com/JuanEsteban52002/comparendo"
+                                        target="_blank"><i class="pi pi-github icon-menu"></i></a></li>
+                </ul>
+            </footer>
+        </div>
+    </div>
+
+</h:body>
 </html>

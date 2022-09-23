@@ -5,7 +5,9 @@ import lombok.*;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import java.io.Serializable;
+import java.util.List;
 
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @NoArgsConstructor
@@ -22,4 +24,7 @@ public class Vehiculo implements Serializable{
     private String placa;
 
     private String lugarMatricula;
+
+    @OneToMany(mappedBy = "vehiculo")
+    private List<Comparendo> comparendos;
 }

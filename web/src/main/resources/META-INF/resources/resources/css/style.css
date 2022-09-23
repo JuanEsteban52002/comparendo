@@ -11,15 +11,21 @@
     margin-right: 10px;
 }
 
+
 #div_izquierda{
     float: left;
-    width: 50%;
+    width: 49%;
 }
 
 #div_derecha{
     float: right;
-    width: 50%;
+    width: 49%;
 }
 
-
+#pie_pagina{
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    clear: both;
+}
 
