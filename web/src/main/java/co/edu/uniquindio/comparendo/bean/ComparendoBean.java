@@ -48,30 +48,25 @@ public class ComparendoBean implements Serializable {
 
     public String guardarComparendo() {
         try {
+            imprimirMensajes();
 
+            /*
+            agenteTransito = comparendoServicio.crearAgenteTransito(agenteTransito);
+
+             */
             licencia = comparendoServicio.crearLicencia(licencia);
             infractor = comparendoServicio.crearInfractor(infractor);
-            agenteTransito = comparendoServicio.crearAgenteTransito(agenteTransito);
+
             empresa = comparendoServicio.crearEmpresa(empresa);
             propietario = comparendoServicio.crearPropietario(propietario);
-
             vehiculo.setPropietario(propietario);
             vehiculo = comparendoServicio.crearVehiculo(vehiculo);
-
             comparendo.setInfractor(infractor);
             comparendo.setLicencia(licencia);
             comparendo.setVehiculo(vehiculo);
             comparendo.setAgentetransito(agenteTransito);
             comparendo.setEmpresa(empresa);
-
             comparendoServicio.crearComparendo(comparendo);
-            System.out.println("COMPARENDO: "+comparendo);
-            System.out.println("LICENCIA: "+licencia);
-            System.out.println("INFRACCION: "+infractor);
-            System.out.println("VEHICULO: "+vehiculo);
-            System.out.println("AGENTE: "+agenteTransito);
-            System.out.println("EMPRESA: "+empresa);
-            System.out.println("PROPIETARIO: "+propietario);
 
             FacesMessage msj = new FacesMessage(FacesMessage.SEVERITY_INFO, "Completado", "Registro exitoso");
             FacesContext.getCurrentInstance().addMessage("msj_bean", msj);
@@ -84,4 +79,13 @@ public class ComparendoBean implements Serializable {
         return null;
     }
 
+    public void imprimirMensajes(){
+        System.out.println("COMPARENDO: "+comparendo);
+        System.out.println("LICENCIA: "+licencia);
+        System.out.println("INFRACCION: "+infractor);
+        System.out.println("VEHICULO: "+vehiculo);
+        System.out.println("AGENTE: "+agenteTransito);
+        System.out.println("EMPRESA: "+empresa);
+        System.out.println("PROPIETARIO: "+propietario);
+    }
 }
