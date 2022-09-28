@@ -16,30 +16,17 @@ import java.util.List;
 @Setter
 @Entity
 @ToString
-public class Infractor implements Serializable {
+
+public class Empresa implements Serializable {
 
     @Id
     @EqualsAndHashCode.Include
-    private String numeroDocumento;
-
-    private String tipoDocumento;
-
-    private String tipoInfractor;
+    private String nit;
 
     private String nombre;
 
-    private String direccion;
+    private String tarjetaOperacion;
 
-    private String telefono;
-
-    private String edad;
-
-    private String municipio;
-
-    @OneToMany(mappedBy = "infractor")
-    private List<Comparendo> comparendos;
-
-    @OneToMany(mappedBy = "infractor")
-    private List<Licencia> licencias;
-
+    @OneToMany(mappedBy = "empresa")
+    private List<Comparendo> comparendo;
 }

@@ -2,10 +2,7 @@ package co.edu.uniquindio.comparendo.entidades;
 
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 
@@ -20,10 +17,20 @@ public class Vehiculo implements Serializable{
 
     @Id
     @EqualsAndHashCode.Include
-    @Column(length = 15)
     private String placa;
 
     private String lugarMatricula;
+
+    private String tipoVehiculo;
+
+    private String claseServicio;
+
+    private String modalidadTransporte;
+
+    private String nivelServicio;
+
+    @ManyToOne
+    private Propietario propietario;
 
     @OneToMany(mappedBy = "vehiculo")
     private List<Comparendo> comparendos;

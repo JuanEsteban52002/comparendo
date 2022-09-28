@@ -17,7 +17,6 @@ public class Comparendo implements Serializable {
 
     @Id
     @EqualsAndHashCode.Include
-    @Column(length = 15)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
@@ -31,7 +30,13 @@ public class Comparendo implements Serializable {
 
     private String localidad;
 
+    private String infraccion;
+
     private String fuente;
+
+    private String radioAccion;
+
+    private String observacionesAgente;
 
     private Boolean intentoFuga;
 
@@ -40,6 +45,8 @@ public class Comparendo implements Serializable {
     private Boolean accidente;
 
     @ManyToOne
+    private AgenteTransito agentetransito;
+    @ManyToOne
     private Infractor infractor;
 
     @ManyToOne
@@ -47,4 +54,7 @@ public class Comparendo implements Serializable {
 
     @ManyToOne
     private Vehiculo vehiculo;
+
+    @ManyToOne
+    private Empresa empresa;
 }

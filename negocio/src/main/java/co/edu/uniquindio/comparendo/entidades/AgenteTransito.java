@@ -2,9 +2,11 @@ package co.edu.uniquindio.comparendo.entidades;
 
 import lombok.*;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import java.io.Serializable;
-import java.util.Date;
 import java.util.List;
 
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
@@ -14,23 +16,16 @@ import java.util.List;
 @Setter
 @Entity
 @ToString
-public class Licencia implements Serializable {
+public class AgenteTransito implements Serializable {
 
     @Id
     @EqualsAndHashCode.Include
-    private String numero;
+    private String numeroIdentificacion;
 
-    private String organizacionTransito;
+    private String nombre;
 
-    private Date expedicion;
+    private String entidad;
 
-    private Date vencimiento;
-
-    @ManyToOne
-    private Infractor infractor;
-
-    @OneToMany(mappedBy = "licencia")
+    @OneToMany(mappedBy = "agentetransito")
     private List<Comparendo> comparendos;
-
-
 }

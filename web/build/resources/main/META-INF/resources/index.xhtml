@@ -20,18 +20,19 @@
                 <div id="1">
                     <h5>1. Fecha y hora</h5>
                     <hr style="background-color: #306f90; height: 3px"></hr>
-                    <br></br>
 
                     <h:panelGrid columns="2" cellpadding="5">
-                        <p:outputLabel style="width: 250px" value="Fecha:" for="fecha_c"/>
+                        <p:outputLabel value="Fecha:" for="fecha_c"/>
 
-                        <p:outputLabel style="width: 250px" value="Hora:" for="hora_c"/>
+                        <p:outputLabel value="Hora:" for="hora_c"/>
 
-                        <p:calendar id="fecha_c" value="#{comparendoBean.comparendo.fecha}" required="true"
+                        <p:calendar class="inputmedio" id="fecha_c" value="#{comparendoBean.comparendo.fecha}"
+                                    required="true"
                                     showOn="button"/>
+                        <p:inputText class="inputmedio" id="hora_c"
+                                     value="#{comparendoBean.comparendo.hora}"
+                                     required="true"/>
 
-                        <p:calendar id="hora_c" value="#{comparendoBean.comparendo.hora}" required="true"
-                                    pattern="HH:mm" timeOnly="true"/>
                     </h:panelGrid>
 
                 </div>
@@ -39,10 +40,9 @@
                     <br></br>
                     <h5>2. Lugar de la infracción</h5>
                     <hr style="background-color: #306f90; height: 3px"></hr>
-                    <br></br>
 
                     <p:outputLabel value="Dirección:" for="direccion_c"/><br></br>
-                    <p:inputText style="width: 500px" id="direccion_c"
+                    <p:inputText class="inputcompleto" id="direccion_c"
                                  value="#{comparendoBean.comparendo.direccion}"
                                  required="true"/>
 
@@ -50,116 +50,315 @@
                         <p:outputLabel value="Municipio:" for="municipio_c"/>
                         <p:outputLabel value="Localidad:" for="localidad_c"/>
 
-                        <p:inputText id="municipio_c" value="#{comparendoBean.comparendo.municipio}"
+                        <p:inputText class="inputmedio" id="municipio_c" value="#{comparendoBean.comparendo.municipio}"
                                      required="true"/>
-                        <p:inputText id="localidad_c" value="#{comparendoBean.comparendo.localidad}"
+                        <p:inputText class="inputmedio" id="localidad_c" value="#{comparendoBean.comparendo.localidad}"
                                      required="true"/>
                     </h:panelGrid>
-
+                    <br/>
                 </div>
 
                 <div id="3-4">
-                    <br></br>
                     <h5>3-4 Placa</h5>
                     <hr style="background-color: #306f90; height: 3px"></hr>
-                    <br></br>
 
                     <h:panelGrid columns="2" cellpadding="5">
                         <p:outputLabel value="Placa:" for="placa_c"/>
                         <p:outputLabel value="Matriculado en:" for="matriculado_c"/>
 
-                        <p:inputText id="placa_c" value="#{comparendoBean.vehiculo.placa}" required="true"/>
-                        <p:inputText id="matriculado_c" value="#{comparendoBean.vehiculo.lugarMatricula}"
+                        <p:inputText class="inputmedio" id="placa_c" value="#{comparendoBean.vehiculo.placa}"
+                                     required="true"/>
+                        <p:inputText class="inputmedio" id="matriculado_c"
+                                     value="#{comparendoBean.vehiculo.lugarMatricula}"
                                      required="true"/>
                     </h:panelGrid>
-                    <br></br>
+                    <br/>
                 </div>
 
                 <div id="5" style="background-color: #eff8ff">
-
                     <h5>5. Infracción</h5>
                     <hr style="background-color: #306f90; height: 3px"></hr>
 
-                    <p:outputLabel value="Código infracción:" for="infraccion_c"/><br></br><br></br>
+                    <p:outputLabel value="Código infracción:" for="infraccion_c"/><br/><br/>
 
-                    <p:selectOneMenu style="font-weight: bolder" id="infraccion_c"
-                                     value="#{comparendoBean.comparendo}">
-                        <f:selectItem itemLabel="SELECCIONE EL CODIGO DE INFRACCIÓN" itemValue=""/>
-                        <f:selectItem itemLabel="A" itemValue="a"/>
+                    <p:selectOneMenu required="true" class="inputcompleto" style="font-weight: bolder; width: 500px" id="infraccion_c"
+                                     value="#{comparendoBean.comparendo.infraccion}">
+                        <f:selectItem itemLabel="SELECCIONE EL CODIGO DE INFRACCIÓN" noSelectionOption="true"/>
+
+                        <f:selectItem itemLabel="A01 No transitar por la derecha de la via." itemValue="A01"/>
+                        <f:selectItem itemLabel="A02 Agarrarse de otro vehículo en circulación.	" itemValue="A02"/>
+                        <f:selectItem itemLabel="A03 Transportar personas o cosas que disminuyan su visibilidad e incomoden la conducción." itemValue="A03"/>
+                        <f:selectItem itemLabel="A04 Transitar por andenes y demás lugares destinados al tránsito de peatones." itemValue="A04"/>
+                        <f:selectItem itemLabel="A05 No respetar las señales de tránsito." itemValue="A05"/>
+                        <f:selectItem itemLabel="A06 Transitar sin los dispositivos luminosos requeridos." itemValue="A06"/>
+                        <f:selectItem itemLabel="A07 Transitar sin dispositivos que permitan la parada inmediata o con ellos, pero en estado defectuoso." itemValue="A07"/>
+                        <f:selectItem itemLabel="" itemValue="A08"/>
+                        <f:selectItem itemLabel="" itemValue="A09"/>
+                        <f:selectItem itemLabel="" itemValue="A10"/>
+                        <f:selectItem itemLabel="" itemValue="A11"/>
+                        <f:selectItem itemLabel="" itemValue="A12"/>
+                        <f:selectItem itemLabel="" itemValue="B01"/>
+                        <f:selectItem itemLabel="" itemValue="B02"/>
+                        <f:selectItem itemLabel="" itemValue="B03"/>
+                        <f:selectItem itemLabel="" itemValue="B04"/>
+                        <f:selectItem itemLabel="" itemValue="B05"/>
+                        <f:selectItem itemLabel="" itemValue="B06"/>
+                        <f:selectItem itemLabel="" itemValue="B07"/>
+                        <f:selectItem itemLabel="" itemValue="B08"/>
+                        <f:selectItem itemLabel="" itemValue="B09"/>
+                        <f:selectItem itemLabel="" itemValue="B10"/>
+                        <f:selectItem itemLabel="" itemValue="B11"/>
+                        <f:selectItem itemLabel="" itemValue="B12"/>
+                        <f:selectItem itemLabel="" itemValue="B13"/>
+                        <f:selectItem itemLabel="" itemValue="B14"/>
+                        <f:selectItem itemLabel="" itemValue="B15"/>
+                        <f:selectItem itemLabel="" itemValue="B16"/>
+                        <f:selectItem itemLabel="" itemValue="B17"/>
+                        <f:selectItem itemLabel="" itemValue="B18"/>
+                        <f:selectItem itemLabel="" itemValue="B19"/>
+                        <f:selectItem itemLabel="" itemValue="B20"/>
+                        <f:selectItem itemLabel="" itemValue="B21"/>
+                        <f:selectItem itemLabel="" itemValue="B22"/>
+                        <f:selectItem itemLabel="" itemValue="B23"/>
+                        <f:selectItem itemLabel="" itemValue="C01"/>
+                        <f:selectItem itemLabel="" itemValue="C02"/>
+                        <f:selectItem itemLabel="" itemValue="C03"/>
+                        <f:selectItem itemLabel="" itemValue="C04"/>
+                        <f:selectItem itemLabel="" itemValue="C05"/>
+                        <f:selectItem itemLabel="" itemValue="C06"/>
+                        <f:selectItem itemLabel="" itemValue="C07"/>
+                        <f:selectItem itemLabel="" itemValue="C08"/>
+                        <f:selectItem itemLabel="" itemValue="C09"/>
+                        <f:selectItem itemLabel="" itemValue="C10"/>
+                        <f:selectItem itemLabel="" itemValue="C11"/>
+                        <f:selectItem itemLabel="" itemValue="C12"/>
+                        <f:selectItem itemLabel="" itemValue="C13"/>
+                        <f:selectItem itemLabel="" itemValue="C14"/>
+                        <f:selectItem itemLabel="" itemValue="C15"/>
+                        <f:selectItem itemLabel="" itemValue="C16"/>
+                        <f:selectItem itemLabel="" itemValue="C17"/>
+                        <f:selectItem itemLabel="" itemValue="C18"/>
+                        <f:selectItem itemLabel="" itemValue="C19"/>
+                        <f:selectItem itemLabel="" itemValue="C20"/>
+                        <f:selectItem itemLabel="" itemValue="C21"/>
+                        <f:selectItem itemLabel="" itemValue="C22"/>
+                        <f:selectItem itemLabel="" itemValue="C23"/>
+                        <f:selectItem itemLabel="" itemValue="C24"/>
+                        <f:selectItem itemLabel="" itemValue="C25"/>
+                        <f:selectItem itemLabel="" itemValue="C26"/>
+                        <f:selectItem itemLabel="" itemValue="C27"/>
+                        <f:selectItem itemLabel="" itemValue="C28"/>
+                        <f:selectItem itemLabel="" itemValue="C29"/>
+                        <f:selectItem itemLabel="" itemValue="C30"/>
+                        <f:selectItem itemLabel="" itemValue="C31"/>
+                        <f:selectItem itemLabel="" itemValue="C32"/>
+                        <f:selectItem itemLabel="" itemValue="C33"/>
+                        <f:selectItem itemLabel="" itemValue="C34"/>
+                        <f:selectItem itemLabel="" itemValue="C35"/>
+                        <f:selectItem itemLabel="" itemValue="C36"/>
+                        <f:selectItem itemLabel="" itemValue="C37"/>
+                        <f:selectItem itemLabel="" itemValue="C38"/>
+                        <f:selectItem itemLabel="" itemValue="C39"/>
+                        <f:selectItem itemLabel="" itemValue="C40"/>
+                        <f:selectItem itemLabel="" itemValue="D01"/>
+                        <f:selectItem itemLabel="" itemValue="D02"/>
+                        <f:selectItem itemLabel="" itemValue="D03"/>
+                        <f:selectItem itemLabel="" itemValue="D04"/>
+                        <f:selectItem itemLabel="" itemValue="D05"/>
+                        <f:selectItem itemLabel="" itemValue="D06"/>
+                        <f:selectItem itemLabel="" itemValue="D07"/>
+                        <f:selectItem itemLabel="" itemValue="D08"/>
+                        <f:selectItem itemLabel="" itemValue="D09"/>
+                        <f:selectItem itemLabel="" itemValue="D10"/>
+                        <f:selectItem itemLabel="" itemValue="D11"/>
+                        <f:selectItem itemLabel="" itemValue="D12"/>
+                        <f:selectItem itemLabel="" itemValue="D13"/>
+                        <f:selectItem itemLabel="" itemValue="D14"/>
+                        <f:selectItem itemLabel="" itemValue="D15"/>
+                        <f:selectItem itemLabel="" itemValue="D16"/>
+                        <f:selectItem itemLabel="" itemValue="D17"/>
+                        <f:selectItem itemLabel="" itemValue="E01"/>
+                        <f:selectItem itemLabel="" itemValue="E02"/>
+                        <f:selectItem itemLabel="" itemValue="E03"/>
+                        <f:selectItem itemLabel="" itemValue="E04"/>
+                        <f:selectItem itemLabel="" itemValue="E05"/>
+                        <f:selectItem itemLabel="" itemValue="F01"/>
+                        <f:selectItem itemLabel="" itemValue="F02"/>
+                        <f:selectItem itemLabel="" itemValue="F03"/>
+                        <f:selectItem itemLabel="" itemValue="F04"/>
+                        <f:selectItem itemLabel="" itemValue="F05"/>
+                        <f:selectItem itemLabel="" itemValue="F06"/>
+                        <f:selectItem itemLabel="" itemValue="F07"/>
+                        <f:selectItem itemLabel="" itemValue="F08"/>
+                        <f:selectItem itemLabel="" itemValue="F09"/>
+                        <f:selectItem itemLabel="" itemValue="F10"/>
+                        <f:selectItem itemLabel="" itemValue="F11"/>
+                        <f:selectItem itemLabel="" itemValue="F12"/>
+                        <f:selectItem itemLabel="" itemValue="G01"/>
+                        <f:selectItem itemLabel="" itemValue="G02"/>
+                        <f:selectItem itemLabel="" itemValue="H01"/>
+                        <f:selectItem itemLabel="" itemValue="H02"/>
+                        <f:selectItem itemLabel="" itemValue="H03"/>
+                        <f:selectItem itemLabel="" itemValue="H04"/>
+                        <f:selectItem itemLabel="" itemValue="H05"/>
+                        <f:selectItem itemLabel="" itemValue="H06"/>
+                        <f:selectItem itemLabel="" itemValue="H07"/>
+                        <f:selectItem itemLabel="" itemValue="H08"/>
+                        <f:selectItem itemLabel="" itemValue="H09"/>
+                        <f:selectItem itemLabel="" itemValue="H10"/>
+                        <f:selectItem itemLabel="" itemValue="H11"/>
+                        <f:selectItem itemLabel="" itemValue="H12"/>
+                        <f:selectItem itemLabel="" itemValue="H13"/>
+                        <f:selectItem itemLabel="" itemValue="I01"/>
+                        <f:selectItem itemLabel="" itemValue="I02"/>
+                        <f:selectItem itemLabel="" itemValue="J01"/>
+                        <f:selectItem itemLabel="" itemValue="J02"/>
+                        <f:selectItem itemLabel="" itemValue="J03"/>
+                        <f:selectItem itemLabel="" itemValue="J04"/>
+                        <f:selectItem itemLabel="" itemValue="J05"/>
+                        <f:selectItem itemLabel="" itemValue="J06"/>
+
                         <f:facet name="footer">
                             <p:divider styleClass="mt-0"/>
-                            <h:outputText value="2 opciones" style="font-weight:bold;"/>
+                            <h:outputText value="130 opciones" style="font-weight:bold"/>
                         </f:facet>
                     </p:selectOneMenu>
-
+                    <br/><br/>
                 </div>
 
-                <div id="6-9">
+                <div id="6-7">
 
                     <h:panelGrid columns="2" cellpadding="5">
+
                         <p:outputLabel style="font-weight: bolder" value="6. Tipo de servicio"
                                        for="tiposervicio_c"/>
                         <p:outputLabel style="font-weight: bolder" value="7. Clase de vehiculo"
                                        for="clasevehiculo_c"/>
 
-                        <p:inputText id="tiposervicio_c" value="#{comparendoBean.comparendo.localidad}"
-                                     required="true"/>
-                        <p:inputText id="clasevehiculo_c" value="#{comparendoBean.comparendo.localidad}"
-                                     required="true"/>
+                        <p:selectOneMenu required="true" class="inputmedio" style="font-weight: bolder" id="tiposervicio_c"
+                                         value="#{comparendoBean.vehiculo.claseServicio}">
+                            <f:selectItem itemLabel="SELECCIONE EL TIPO DE SERVICIO" noSelectionOption="true"/>
+                            <f:selectItem itemLabel="DIPLOMÁTICO" itemValue="diplomatico"/>
+                            <f:selectItem itemLabel="OFICIAL" itemValue="oficial"/>
+                            <f:selectItem itemLabel="PARTICULAR" itemValue="particular"/>
+                            <f:selectItem itemLabel="PÚBLICO" itemValue="publico"/>
+                            <f:facet name="footer">
+                                <p:divider styleClass="mt-0"/>
+                                <h:outputText value="4 opciones" style="font-weight:bold"/>
+                            </f:facet>
+                        </p:selectOneMenu>
 
+                        <p:selectOneMenu required="true" class="inputmedio" style="font-weight: bolder" id="clasevehiculo_c"
+                                         value="#{comparendoBean.vehiculo.tipoVehiculo}">
+                            <f:selectItem itemLabel="SELECCIONE EL TIPO DE VEHICULO" noSelectionOption="true"/>
+                            <f:selectItem itemLabel="BICICLETA O TRICICLO" itemValue="bicicletaotriciclo"/>
+                            <f:selectItem itemLabel="TRACCION ANIMAL" itemValue="traccionanimal"/>
+                            <f:selectItem itemLabel="AUTOMOVIL" itemValue="automovil"/>
+                            <f:selectItem itemLabel="CAMPERO" itemValue="campero"/>
+                            <f:selectItem itemLabel="CAMIONETA" itemValue="camioneta"/>
+                            <f:selectItem itemLabel="MICROBUS" itemValue="mcrobus"/>
+                            <f:selectItem itemLabel="BUSETA" itemValue="buseta"/>
+                            <f:selectItem itemLabel="BUS" itemValue="bus"/>
+                            <f:selectItem itemLabel="BUS ARTICULADO" itemValue="busarticulado"/>
+                            <f:selectItem itemLabel="CAMION" itemValue="camion"/>
+                            <f:selectItem itemLabel="VOLQUETA" itemValue="volqueta"/>
+                            <f:selectItem itemLabel="TRACTOCAMIÓN" itemValue="tractocamion"/>
+                            <f:selectItem itemLabel="MOTOCICLO" itemValue="motociclo"/>
+                            <f:selectItem itemLabel="MOTOTRICICLO" itemValue="mototriciclo"/>
+                            <f:selectItem itemLabel="MOTOCICLETA" itemValue="motocicleta"/>
+                            <f:selectItem itemLabel="CUATRIMOTO" itemValue="cuatrimoto"/>
+                            <f:selectItem itemLabel="REMOLQUE / SEMIREM" itemValue="remolquesemirem"/>
+
+                            <f:facet name="footer">
+                                <p:divider styleClass="mt-0"/>
+                                <h:outputText value="18 opciones" style="font-weight:bold"/>
+                            </f:facet>
+                        </p:selectOneMenu>
+
+                    </h:panelGrid>
+                    <br/>
+                </div>
+
+                <div id="8-9" style="background-color: #eff8ff">
+                    <h:panelGrid columns="2" cellpadding="5">
                         <p:outputLabel style="font-weight: bolder" value="8. Radio de accion"
                                        for="radioaccion_c"/>
                         <p:outputLabel style="font-weight: bolder" value="9. Modalidad de transporte"
                                        for="modalidadtransporte_c"/>
 
-                        <p:inputText id="radioaccion_c" value="#{comparendoBean.comparendo.localidad}"
-                                     required="true"/>
-                        <p:inputText id="modalidadtransporte_c" value="#{comparendoBean.comparendo.localidad}"
-                                     required="true"/>
-                    </h:panelGrid>
+                        <p:selectOneMenu required="true" class="inputmedio" style="font-weight: bolder" id="radioaccion_c"
+                                         value="#{comparendoBean.comparendo.radioAccion}">
+                            <f:selectItem itemLabel="SELECCIONE EL RADIO DE ACCION" noSelectionOption="true"/>
+                            <f:selectItem itemLabel="NACIONAL" itemValue="nacional"/>
+                            <f:selectItem itemLabel="MUNICIPAL" itemValue="municipal"/>
 
+                            <f:facet name="footer">
+                                <p:divider styleClass="mt-0"/>
+                                <h:outputText value="4 opciones" style="font-weight:bold"/>
+                            </f:facet>
+                        </p:selectOneMenu>
 
+                        <p:selectOneMenu required="true" class="inputmedio" style="font-weight: bolder; width: 348px"
+                                         id="modalidadtransporte_c"
+                                         value="#{comparendoBean.vehiculo.modalidadTransporte}">
+                            <f:selectItem itemLabel="SELECCIONE LA MODALIDAD DE TRANSPORTE" noSelectionOption="true"/>
+                            <f:selectItem itemLabel="PASAJEROS" itemValue="pasajeros"/>
+                            <f:selectItem itemLabel="MIXTO" itemValue="mixto"/>
+                            <f:selectItem itemLabel="CARGA" itemValue="carga"/>
+
+                            <f:facet name="footer">
+                                <p:divider styleClass="mt-0"/>
+                                <h:outputText value="3 opciones" style="font-weight:bold"/>
+                            </f:facet>
+                        </p:selectOneMenu>
+                    </h:panelGrid><br/>
                 </div>
 
-                <div id="9.1">
+                <div id="9.1"><br/>
                     <h5>9.1 Nivel de servicio</h5>
                     <hr style="background-color: #306f90; height: 3px"></hr>
-                    <br></br>
 
                     <div class="field col-12 md:col-4">
-                        <p:selectOneMenu style="font-weight: bolder" id="nivelservicio_c"
-                                         value="#{selectOneMenuView.selectedOption}">
-                            <f:selectItem itemLabel="SELECCIONE EL NIVEL DE SERVICIO DEL VEHICULO"
-                                          itemValue=""/>
-                            <f:selectItem itemLabel="A" itemValue="a"/>
+                        <p:selectOneMenu required="true" class="inputcompleto" style="font-weight: bolder" id="nivelservicio_c"
+                                          value="#{comparendoBean.vehiculo.nivelServicio}">
+                            <f:selectItem itemLabel="SELECCIONE EL NIVEL DE SERVICIO DEL VEHICULO" noSelectionOption="true"/>
+                            <f:selectItem itemLabel="COLECTIVO" itemValue="colectivo"/>
+                            <f:selectItem itemLabel="INDIVIDUAL" itemValue="individual"/>
+                            <f:selectItem itemLabel="MASIVO" itemValue="masivo"/>
+                            <f:selectItem itemLabel="ESCOLAR" itemValue="escolar"/>
+                            <f:selectItem itemLabel="ASALARIADO" itemValue="asalariado"/>
+                            <f:selectItem itemLabel="DE TURISMO" itemValue="deturismo"/>
+                            <f:selectItem itemLabel="OCASIONAL" itemValue="ocasional"/>
                             <f:facet name="footer">
                                 <p:divider styleClass="mt-0"/>
                                 <h:outputText value="2 opciones" style="font-weight:bold;"/>
                             </f:facet>
                         </p:selectOneMenu>
                     </div>
-                    <br></br>
+                    <br/>
                 </div>
 
                 <div id="10" style="background-color: #eff8ff">
                     <h5>10. Tipo de infractor</h5>
                     <hr style="background-color: #306f90; height: 3px"></hr>
-                    <br></br>
 
                     <div class="field col-12 md:col-4">
-                        <p:selectOneMenu style="font-weight: bolder" id="tipoinfractor_c"
-                                         value="#{comparendoBean.infractor}">
-                            <f:selectItem itemLabel="SELECCIONAR TIPO DE INFRACTOR" itemValue=""/>
-                            <f:selectItem itemLabel="Conductor" itemValue="conductor"/>
+                        <p:selectOneMenu required="true" class="inputcompleto" style="font-weight: bolder" id="tipoinfractor_c"
+                                         value="#{comparendoBean.infractor.tipoInfractor}">
+                            <f:selectItem itemLabel="SELECCIONAR TIPO DE INFRACTOR" noSelectionOption="true"/>
+                            <f:selectItem itemLabel="CONDUCTOR" itemValue="conductor"/>
+                            <f:selectItem itemLabel="PEATÓN" itemValue="peaton"/>
+                            <f:selectItem itemLabel="PASAJERO" itemValue="pasajero"/>
                             <f:facet name="footer">
                                 <p:divider styleClass="mt-0"/>
                                 <h:outputText value="2 opciones" style="font-weight:bold;"/>
                             </f:facet>
                         </p:selectOneMenu>
+                        <br/><br/>
                     </div>
 
                 </div>
-                <br></br><br></br>
+                <br/><br/>
             </div>
 
 
@@ -167,44 +366,44 @@
                 <div id="11">
                     <h5>11. Licencia de tránsito</h5>
                     <hr style="background-color: #306f90; height: 3px"></hr>
-                    <br></br>
 
-                    <p:outputLabel value="Organización de tránsito" for="orgtransito_c"/><br></br>
-                    <p:inputText style="width: 500px" id="orgtransito_c"
+                    <p:outputLabel value="Organización de tránsito" for="orgtransito_c"/><br/>
+                    <p:inputText class="inputcompleto" id="orgtransito_c"
                                  value="#{comparendoBean.licencia.organizacionTransito}" required="true"/>
 
-                    <br></br><br></br>
-                    <p:outputLabel value="Numero del documento" for="numdocumento_c"/><br></br>
-                    <p:inputText style="width: 500px" id="numdocumento_c"
+                    <br/><br/>
+                    <p:outputLabel value="Numero del documento" for="numdocumento_c"/><br/>
+                    <p:inputText class="inputcompleto" id="numdocumento_c"
                                  value="#{comparendoBean.licencia.numero}"
                                  required="true"/>
-                    <br></br><br></br>
+                    <br/><br/>
                 </div>
 
                 <div id="12" style="background-color: #eff8ff">
                     <h5>12. Datos del propietario</h5>
                     <hr style="background-color: #306f90; height: 3px"></hr>
-                    <br></br>
 
                     <h:panelGrid columns="2" cellpadding="5">
                         <p:outputLabel value="Tipo de documento" for="tipodocumento_c"/>
                         <p:outputLabel value="Numero documento" for="numdocumentop_c"/>
 
-                        <p:inputText id="tipodocumento_c" value="#{comparendoBean.infractor.tipoDocumento}"
+                        <p:inputText class="inputmedio" id="tipodocumento_c"
+                                     value="#{comparendoBean.infractor.tipoDocumento}"
                                      required="true"/>
-                        <p:inputText id="numdocumentop_c" value="#{comparendoBean.infractor.numeroDocumento}"
+                        <p:inputText class="inputmedio" id="numdocumentop_c"
+                                     value="#{comparendoBean.infractor.numeroDocumento}"
                                      required="true"/>
                     </h:panelGrid>
 
-                    <p:outputLabel value="Nombres y apellidos completos" for="nombrep_c"/><br></br>
-                    <p:inputText style="width: 500px" id="nombrep_c" value="#{comparendoBean.infractor.nombre}"
+                    <p:outputLabel value="Nombres y apellidos completos" for="nombrep_c"/><br/>
+                    <p:inputText class="inputcompleto" id="nombrep_c" value="#{comparendoBean.infractor.nombre}"
                                  required="true"/>
                 </div>
                 <div id="18" style="background-color: #eff8ff">
-                    <br></br><br></br>
+                    <br/><br/>
                     <h5>18. Datos adicionales</h5>
                     <hr style="background-color: #306f90; height: 3px"></hr>
-                    <br></br>
+                    <br/>
 
                     <h:panelGrid columns="2" cellpadding="5">
                         <p:outputLabel value="¿Comparendo de polca?" for="comparendopolca_c"/>
@@ -212,19 +411,19 @@
 
                         <p:selectBooleanCheckbox id="comparendopolca_c"
                                                  value="#{comparendoBean.comparendo.comparendoPolca}"/>
-                        <p:selectBooleanCheckbox id="intentofuga_c" value="#{selectBooleanView.value1}"/>
+                        <p:selectBooleanCheckbox id="intentofuga_c" value="#{comparendoBean.comparendo.intentoFuga}"/>
 
                         <p:outputLabel value="¿Existió un accidente?" for="accidente_c"/>
                         <h1></h1>
-                        <p:selectBooleanCheckbox id="accidente_c" value="#{selectBooleanView.value1}"/>
+                        <p:selectBooleanCheckbox id="accidente_c" value="#{comparendoBean.comparendo.accidente}"/>
                     </h:panelGrid>
 
 
                     <div class="field col-12 md:col-4">
-                        <p:outputLabel value="Fuente del comparendo" for="fuentecomparendo_c"/><br></br>
+                        <p:outputLabel value="Fuente del comparendo" for="fuentecomparendo_c"/><br/>
                         <p:selectOneMenu style="font-weight: bolder; width: 500px" id="fuentecomparendo_c"
-                                         value="#{selectOneMenuView.selectedOption}">
-                            <f:selectItem itemLabel="SELECCIONE LA FUENTE DEL COMPARENDO" itemValue=""/>
+                                         value="#{comparendoBean.comparendo.fuente}">
+                            <f:selectItem itemLabel="SELECCIONE LA FUENTE DEL COMPARENDO" noSelectionOption="true"/>
                             <f:selectItem itemLabel="Manual" itemValue="manual"/>
                             <f:facet name="footer">
                                 <p:divider styleClass="mt-0"/>
@@ -232,16 +431,18 @@
                             </f:facet>
                         </p:selectOneMenu>
                     </div>
+                    <br/><br/>
                 </div>
 
                 <div id="boton_guardar">
-                    <br></br>
-                    <p:commandButton style="right: 0" value="Guardar" action="#{comparendoBean.guardar}"
+                    <br/>
+
+                    <p:commandButton value="Guardar" action="#{comparendoBean.guardarComparendo}" update="@form"
                                      styleClass="ui-button-success"
                                      icon="pi pi-arrow-right" iconPos="right"/>
-                </div>
 
-                <br></br><br></br>
+                </div>
+                <br/><br/>
             </div>
         </h:form>
     </ui:define>

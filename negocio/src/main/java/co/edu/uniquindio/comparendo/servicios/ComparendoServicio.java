@@ -1,12 +1,15 @@
 package co.edu.uniquindio.comparendo.servicios;
 
-import co.edu.uniquindio.comparendo.entidades.Comparendo;
-import co.edu.uniquindio.comparendo.entidades.Infractor;
-import co.edu.uniquindio.comparendo.entidades.Licencia;
-import co.edu.uniquindio.comparendo.entidades.Vehiculo;
+import co.edu.uniquindio.comparendo.entidades.*;
 
 public interface ComparendoServicio {
 
+    AgenteTransito obtenerAgenteTransito(String numeroIdentificacion);
+    AgenteTransito crearAgenteTransito(AgenteTransito agenteTransito);
+    Empresa obtenerEmpresa(String nit);
+    Empresa crearEmpresa(Empresa empresa);
+    Propietario obtenerPropietario(String numeroIdentificacion);
+    Propietario crearPropietario(Propietario propietario);
     Licencia obtenerLicencia(String numero);
     Licencia crearLicencia(Licencia licencia);
 
