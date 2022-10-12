@@ -1,6 +1,8 @@
 package co.edu.uniquindio.comparendo.entidades;
 
 import lombok.*;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -30,6 +32,7 @@ public class Licencia implements Serializable {
     private Infractor infractor;
 
     @OneToMany(mappedBy = "licencia")
+    @LazyCollection(LazyCollectionOption.FALSE)
     private List<Comparendo> comparendos;
 
 

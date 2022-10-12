@@ -35,6 +35,9 @@ public class ComparendoBean implements Serializable {
     @Getter @Setter
     private Propietario propietario;
 
+    @Getter @Setter
+    private Testigo testigo;
+
     @PostConstruct
     public void inicializar(){
         comparendo = new Comparendo();
@@ -44,28 +47,29 @@ public class ComparendoBean implements Serializable {
         agenteTransito = new AgenteTransito();
         empresa = new Empresa();
         propietario = new Propietario();
+        testigo = new Testigo();
     }
 
     public String guardarComparendo() {
         try {
-            imprimirMensajes();
-
-            /*
-            agenteTransito = comparendoServicio.crearAgenteTransito(agenteTransito);
-
-             */
-            licencia = comparendoServicio.crearLicencia(licencia);
-            infractor = comparendoServicio.crearInfractor(infractor);
 
             empresa = comparendoServicio.crearEmpresa(empresa);
+            infractor = comparendoServicio.crearInfractor(infractor);
+
+            agenteTransito = comparendoServicio.crearAgenteTransito(agenteTransito);
+            testigo = comparendoServicio.crearTestigo(testigo);
+            licencia = comparendoServicio.crearLicencia(licencia);
             propietario = comparendoServicio.crearPropietario(propietario);
             vehiculo.setPropietario(propietario);
             vehiculo = comparendoServicio.crearVehiculo(vehiculo);
-            comparendo.setInfractor(infractor);
             comparendo.setLicencia(licencia);
             comparendo.setVehiculo(vehiculo);
+
+            comparendo.setTestigo(testigo);
             comparendo.setAgentetransito(agenteTransito);
             comparendo.setEmpresa(empresa);
+            comparendo.setInfractor(infractor);
+
             comparendoServicio.crearComparendo(comparendo);
 
             FacesMessage msj = new FacesMessage(FacesMessage.SEVERITY_INFO, "Completado", "Registro exitoso");
@@ -82,7 +86,7 @@ public class ComparendoBean implements Serializable {
     public void imprimirMensajes(){
         System.out.println("COMPARENDO: "+comparendo);
         System.out.println("LICENCIA: "+licencia);
-        System.out.println("INFRACCION: "+infractor);
+        System.out.println("INFRACTOR: "+infractor);
         System.out.println("VEHICULO: "+vehiculo);
         System.out.println("AGENTE: "+agenteTransito);
         System.out.println("EMPRESA: "+empresa);

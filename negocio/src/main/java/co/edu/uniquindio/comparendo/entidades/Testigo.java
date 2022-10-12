@@ -2,7 +2,6 @@ package co.edu.uniquindio.comparendo.entidades;
 
 import lombok.*;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -16,32 +15,18 @@ import java.util.List;
 @Setter
 @Entity
 @ToString
-public class Infractor implements Serializable {
+public class Testigo implements Serializable {
 
     @Id
     @EqualsAndHashCode.Include
     private String numeroDocumento;
 
-    private String tipoDocumento;
-
-    private String tipoInfractor;
-
-    private String nombre;
-
-    private String apellido;
+    private String nombreCompleto;
 
     private String direccion;
 
     private String telefono;
 
-    private String edad;
-
-    private String municipio;
-
-    @OneToMany(mappedBy = "infractor")
+    @OneToMany(mappedBy = "testigo")
     private List<Comparendo> comparendos;
-
-    @OneToMany(mappedBy = "infractor")
-    private List<Licencia> licencias;
-
 }

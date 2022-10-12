@@ -30,6 +30,7 @@ public class Comparendo implements Serializable {
 
     private String localidad;
 
+    @Lob
     private String infraccion;
 
     private String fuente;
@@ -37,6 +38,8 @@ public class Comparendo implements Serializable {
     private String radioAccion;
 
     private String observacionesAgente;
+
+    private Boolean inmovilizacion;
 
     private Boolean intentoFuga;
 
@@ -57,4 +60,7 @@ public class Comparendo implements Serializable {
 
     @ManyToOne
     private Empresa empresa;
+
+    @ManyToOne
+    private Testigo testigo;
 }

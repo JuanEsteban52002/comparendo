@@ -4,6 +4,8 @@ import co.edu.uniquindio.comparendo.entidades.*;
 import co.edu.uniquindio.comparendo.repositorios.*;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 
 @Service
 public class ComparendoServicioImpl implements ComparendoServicio{
@@ -15,6 +17,7 @@ public class ComparendoServicioImpl implements ComparendoServicio{
     private InfractorRepo infractorRepo;
     private LicenciaRepo licenciaRepo;
     private VehiculoRepo vehiculoRepo;
+    private TestigoRepo testigoRepo;
 
     public ComparendoServicioImpl(ComparendoRepo comparendoRepo,
                                   InfractorRepo infractorRepo,
@@ -22,7 +25,8 @@ public class ComparendoServicioImpl implements ComparendoServicio{
                                   VehiculoRepo vehiculoRepo,
                                   AgenteRepo agenteRepo,
                                   PropietarioRepo propietarioRepo,
-                                  EmpresaRepo empresaRepo) {
+                                  EmpresaRepo empresaRepo,
+                                  TestigoRepo testigoRepo) {
         this.comparendoRepo = comparendoRepo;
         this.infractorRepo = infractorRepo;
         this.licenciaRepo = licenciaRepo;
@@ -30,14 +34,16 @@ public class ComparendoServicioImpl implements ComparendoServicio{
         this.agenteRepo = agenteRepo;
         this.propietarioRepo = propietarioRepo;
         this.empresaRepo = empresaRepo;
+        this.testigoRepo = testigoRepo;
     }
 
     public Comparendo crearComparendo(Comparendo comparendo) throws Exception {
-
-        Comparendo comparendoBuscado = obtenerComparendo(comparendo.getId());
-
-        if(comparendoBuscado != null) {
-            throw new Exception("El comparendo ya existe");
+        List<Comparendo> comparendos = comparendoRepo.findAll();
+        if(!comparendos.isEmpty()){
+            Comparendo comparendoBuscado = obtenerComparendo(comparendo.getId());
+            if(comparendoBuscado != null) {
+                throw new Exception("El comparendo ya existe");
+            }
         }
 
         return comparendoRepo.save(comparendo);
@@ -49,9 +55,9 @@ public class ComparendoServicioImpl implements ComparendoServicio{
 
         if(licenciaEncontrada != null){
             return licenciaEncontrada;
+        }else{
+            return licenciaRepo.save(licencia);
         }
-
-        return licenciaRepo.save(licencia);
     }
 
     @Override
@@ -61,9 +67,10 @@ public class ComparendoServicioImpl implements ComparendoServicio{
 
         if(infractorEncontrado != null){
             return infractorEncontrado;
+        }else{
+            return infractorRepo.save(infractor);
         }
 
-        return infractorRepo.save(infractor);
     }
 
     @Override
@@ -73,9 +80,21 @@ public class ComparendoServicioImpl implements ComparendoServicio{
 
         if(vehiculoBuscado != null){
             return vehiculoBuscado;
+        }else{
+            return vehiculoRepo.save(vehiculo);
         }
+    }
 
-        return vehiculoRepo.save(vehiculo);
+    @Override
+    public Testigo crearTestigo(Testigo testigo) throws Exception {
+
+        Testigo testigoBuscado = obtenerTestigo(testigo.getNumeroDocumento());
+
+        if(testigoBuscado != null){
+            return testigoBuscado;
+        }else{
+            return testigoRepo.save(testigo);
+        }
     }
 
     @Override
@@ -85,8 +104,10 @@ public class ComparendoServicioImpl implements ComparendoServicio{
 
         if(propietarioBuscado != null){
             return propietarioBuscado;
+        }else{
+            return propietarioRepo.save(propietario);
         }
-        return propietarioRepo.save(propietario);
+
     }
 
     @Override
@@ -96,8 +117,10 @@ public class ComparendoServicioImpl implements ComparendoServicio{
 
         if(agenteTransitoBuscado != null){
             return agenteTransitoBuscado;
+        }else{
+            return agenteRepo.save(agenteTransito);
         }
-        return agenteRepo.save(agenteTransito);
+
     }
 
     @Override
@@ -107,8 +130,10 @@ public class ComparendoServicioImpl implements ComparendoServicio{
 
         if(empresaBuscada != null){
             return empresaBuscada;
+        }else{
+            return empresaRepo.save(empresa);
         }
-        return empresaRepo.save(empresa);
+
     }
 
     @Override
@@ -122,6 +147,11 @@ public class ComparendoServicioImpl implements ComparendoServicio{
     @Override
     public Comparendo obtenerComparendo(Integer id) throws Exception {
         return comparendoRepo.findById(id).orElse(null);
+    }
+
+    @Override
+    public Testigo obtenerTestigo(String numeroDocumento) {
+        return testigoRepo.findById(numeroDocumento).orElse(null);
     }
 
     @Override

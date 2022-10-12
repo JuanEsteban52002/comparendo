@@ -4,6 +4,7 @@ import co.edu.uniquindio.comparendo.entidades.*;
 
 public interface ComparendoServicio {
 
+    Testigo obtenerTestigo(String numeroDocumento);
     AgenteTransito obtenerAgenteTransito(String numeroIdentificacion);
     AgenteTransito crearAgenteTransito(AgenteTransito agenteTransito);
     Empresa obtenerEmpresa(String nit);
@@ -17,6 +18,8 @@ public interface ComparendoServicio {
     Infractor crearInfractor(Infractor infractor) throws Exception;
 
     Vehiculo crearVehiculo(Vehiculo vehiculo) throws Exception;
+
+    Testigo crearTestigo(Testigo testigo) throws Exception;
 
     Vehiculo obtenerVehiculo(String placa) throws Exception;
 

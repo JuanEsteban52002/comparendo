@@ -339,7 +339,7 @@
                 </div>
 
                 <div id="10" style="background-color: #eff8ff">
-                    <h5>10. Tipo de infractor</h5>
+                    <h5>10. Datos del infractor</h5>
                     <hr style="background-color: #306f90; height: 3px"></hr>
 
                     <div class="field col-12 md:col-4">
@@ -355,6 +355,60 @@
                             </f:facet>
                         </p:selectOneMenu>
                         <br/><br/>
+
+                        <h:panelGrid columns="2" cellpadding="5">
+                            <p:outputLabel value="Tipo de documento" for="tipodocumentoi_c"/>
+                            <p:outputLabel value="Numero documento de identidad" for="numdocumentoi_c"/>
+
+                            <p:inputText class="inputmedio" id="tipodocumentoi_c"
+                                         value="#{comparendoBean.infractor.tipoDocumento}"
+                                         required="true"/>
+                            <p:inputText class="inputmedio" id="numdocumentoi_c"
+                                         value="#{comparendoBean.infractor.numeroDocumento}"
+                                         required="true"/>
+
+                            <p:outputLabel value="Número licencia de conducción" for="numerolicenciai_c"/>
+                            <p:outputLabel value="Categoria" for="categoriai_c"/>
+
+                            <p:inputText class="inputmedio" id="numerolicenciai_c"
+                                         value="#{comparendoBean.infractor.tipoDocumento}"
+                                         required="true"/>
+                            <p:inputText class="inputmedio" id="categoriai_c"
+                                         value="#{comparendoBean.infractor.numeroDocumento}"
+                                         required="true"/>
+                        </h:panelGrid>
+
+                        <p:outputLabel value="Fecha vencimiento de la licencia" for="fechavencimientolicenciai_c"/><br/>
+                        <p:calendar class="inputcompleto" id="fechavencimientolicenciai_c" value="#{comparendoBean.licencia.vencimiento}"
+                                    required="true"
+                                    showOn="button"/><br/>
+
+                        <p:outputLabel value="Tránsito que la expide" for="transitoexpide_c"/>
+                        <p:inputText class="inputmedio" id="transitoexpide_c"
+                                     value="#{comparendoBean.licencia.organizacionTransito}"
+                                     required="true"/>
+
+                        <h:panelGrid columns="2" cellpadding="5">
+                            <p:outputLabel value="Nombres completos" for="nombrecompletoi_c"/>
+                            <p:outputLabel value="Apellidos completos" for="apellidoscompletoi_c"/>
+
+                            <p:inputText class="inputmedio" id="nombrecompletoi_c"
+                                         value="#{comparendoBean.infractor.nombre}"
+                            required="true"/>
+                            <p:inputText class="inputmedio" id="apellidoscompletoi_c"
+                                         value="#{comparendoBean.infractor.apellido}"
+                                         required="true"/>
+
+                            <p:outputLabel value="Dirección" for="direccioni_c"/>
+                            <p:outputLabel value="Edad" for="edadi_c"/>
+
+                            <p:inputText class="inputmedio" id="direccioni_c"
+                                         value="#{comparendoBean.infractor.direccion}"
+                                         required="true"/>
+                            <p:inputText class="inputmedio" id="edadi_c"
+                                         value="#{comparendoBean.infractor.edad}"
+                                         required="true"/>
+                        </h:panelGrid>
                     </div>
 
                 </div>
@@ -399,6 +453,90 @@
                     <p:inputText class="inputcompleto" id="nombrep_c" value="#{comparendoBean.propietario.nombreCompleto}"
                                  required="true"/>
                 </div>
+
+                <div id="13"><br/>
+                    <h5>13. Datos de la empresa</h5>
+                    <hr style="background-color: #306f90; height: 3px"></hr>
+
+                    <p:outputLabel value="Nombre de la empresa" for="nombreempresa"/><br/>
+                    <p:inputText class="inputcompleto" id="nombreempresa" value="#{comparendoBean.empresa.nombre}"
+                                 required="false"/>
+
+                    <h:panelGrid columns="2" cellpadding="5">
+                        <p:outputLabel value="NIT" for="nitempresa"/>
+                        <p:outputLabel value="Tarjeta de operacion" for="tarjetaoperacion"/>
+
+                        <p:inputText class="inputmedio" id="nitempresa" value="#{comparendoBean.empresa.nit}"
+                                     required="false"/>
+                        <p:inputText class="inputmedio" id="tarjetaoperacion" value="#{comparendoBean.empresa.tarjetaOperacion}"
+                                     required="false"/>
+
+                    </h:panelGrid>
+
+                </div>
+
+                <div id="14"><br/>
+                    <h5>14. Datos del agente de tránsito</h5>
+                    <hr style="background-color: #306f90; height: 3px"></hr>
+
+                    <p:outputLabel value="Nombre y apellidos completos" for="nombreagente"/><br/>
+                    <p:inputText class="inputcompleto" id="nombreagente" value="#{comparendoBean.agenteTransito.nombre}"
+                                 required="true"/>
+
+                    <h:panelGrid columns="2" cellpadding="5">
+                        <p:outputLabel value="Placa" for="placaagente"/>
+                        <p:outputLabel value="Entidad" for="entidadagente"/>
+
+                        <p:inputText class="inputmedio" id="placaagente" value="#{comparendoBean.agenteTransito.numeroIdentificacion}"
+                                     required="true"/>
+                        <p:inputText class="inputmedio" id="entidadagente" value="#{comparendoBean.empresa.tarjetaOperacion}"
+                                     required="true"/>
+
+                    </h:panelGrid>
+
+                </div>
+
+                <div id="15">
+                    <br/>
+                    <h5>15. Datos de la inmovilización</h5>
+                    <hr style="background-color: #306f90; height: 3px"></hr>
+
+                    <p:outputLabel value="¿Se inmovilizó el vehículo?" for="inmovilizacionp_c"/><br/>
+                    <p:selectBooleanCheckbox id="inmovilizacionp_c" value="#{comparendoBean.comparendo.inmovilizacion}"/><br/><br/>
+                </div>
+
+                <div id="16">
+                    <h5>16. Observación del agente de tránsito</h5>
+                    <hr style="background-color: #306f90; height: 3px"></hr>
+                    <p:inputText class="inputcompleto" id="observacion_agentec" value="#{comparendoBean.comparendo.observacionesAgente}"
+                                 required="true"/>
+                </div>
+
+                <div id="17"><br/>
+                    <h5>17. Datos del testigo en caso de que aplique</h5>
+                    <hr style="background-color: #306f90; height: 3px"></hr>
+
+                    <h:panelGrid columns="2" cellpadding="5">
+                        <p:outputLabel value="C.C N" for="cctestigo"/>
+                        <p:outputLabel value="Nombres y apellidos completos" for="nombretestigo"/>
+
+                        <p:inputText class="inputmedio" id="cctestigo" value="#{comparendoBean.testigo.numeroDocumento}"
+                                     required="false"/>
+                        <p:inputText class="inputmedio" id="nombretestigo" value="#{comparendoBean.testigo.nombreCompleto}"
+                                     required="false"/>
+
+                        <p:outputLabel value="Direccion" for="direcciontestigo"/>
+                        <p:outputLabel value="Teléfono" for="telefonotestigo"/>
+
+                        <p:inputText class="inputmedio" id="direcciontestigo" value="#{comparendoBean.testigo.direccion}"
+                                     required="false"/>
+                        <p:inputText class="inputmedio" id="telefonotestigo" value="#{comparendoBean.testigo.telefono}"
+                                     required="false"/>
+
+                    </h:panelGrid>
+
+                </div>
+
                 <div id="18" style="background-color: #eff8ff">
                     <br/><br/>
                     <h5>18. Datos adicionales</h5>
@@ -439,7 +577,8 @@
 
                     <p:commandButton value="Guardar" action="#{comparendoBean.guardarComparendo}" update="@form"
                                      styleClass="ui-button-success"
-                                     icon="pi pi-arrow-right" iconPos="right"/>
+                                     icon="pi pi-arrow-right" iconPos="right"
+                    />
 
                 </div>
                 <br/><br/>
